@@ -5,6 +5,7 @@ const ulEl = document.getElementById("ul-el");
 
 inputBtn.addEventListener("click", function() {
     myLeads.push(inputEl.value);
+    inputEl.value = "";  // to clear out input after hitting the button
     renderInput();
 });
 
