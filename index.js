@@ -3,6 +3,10 @@ const inputEl = document.getElementById("input-el");
 const inputBtn = document.getElementById("input-btn");
 const ulEl = document.getElementById("ul-el");
 
+// localStorage only supports strings. 
+// Use JSON.stringify() => array to string
+// JSON.parse() => string to array
+
 inputBtn.addEventListener('click', function() {
     myLeads.push(inputEl.value);
     inputEl.value = "";  // to clear out input after hitting the button
