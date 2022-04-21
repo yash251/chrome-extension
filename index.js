@@ -3,9 +3,20 @@ const inputEl = document.getElementById("input-el");
 const inputBtn = document.getElementById("input-btn");
 const ulEl = document.getElementById("ul-el");
 
+let leadsFromLocalStorage = JSON.parse( localStorage.getItem("myLeads") ); // str to arr
+
 // localStorage only supports strings. 
 // Use JSON.stringify() => array to string
 // JSON.parse() => string to array
+// truthy
+// falsy
+
+// false
+// 0
+// ""
+// null -> how you as a developer signalize emptiness
+// undefined -> how JavaScript signalizes emptiness
+// NaN
 
 inputBtn.addEventListener('click', function() {
     myLeads.push(inputEl.value);
