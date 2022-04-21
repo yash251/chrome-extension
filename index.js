@@ -3,6 +3,7 @@ const inputEl = document.getElementById("input-el");
 const inputBtn = document.getElementById("input-btn");
 const ulEl = document.getElementById("ul-el");
 const deleteBtn = document.getElementById("delete-btn");
+const tabBtn = document.getElementById("tab-btn");
 
 const leadsFromLocalStorage = JSON.parse( localStorage.getItem("myLeads") ); // str to arr
 
@@ -10,6 +11,16 @@ if (leadsFromLocalStorage) { // Checking if leadsFromLocalStorage is truthy
     myLeads = leadsFromLocalStorage;
     renderInput(myLeads);
 }
+
+const tabs = [
+    {url: "https://www.github.com/yash251"}
+]
+
+tabBtn.addEventListener('click', function() {
+    myLeads.push(tabs[0].url);
+    localStorage.setItem("myLeads", JSON.stringify(myLeads));
+    renderInput(myLeads);
+})
 
 deleteBtn.addEventListener('dblclick', function() {
     localStorage.clear();
