@@ -12,15 +12,13 @@ if (leadsFromLocalStorage) { // Checking if leadsFromLocalStorage is truthy
     renderInput(myLeads);
 }
 
-const tabs = [
-    {url: "https://www.github.com/yash251"}
-]
-
 tabBtn.addEventListener('click', function() {
-    myLeads.push(tabs[0].url);
-    localStorage.setItem("myLeads", JSON.stringify(myLeads));
-    renderInput(myLeads);
-})
+    chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+        myLeads.push(tabs[0].url);
+        localStorage.setItem("myLeads", JSON.stringify(myLeads));
+        renderInput(myLeads);
+    });
+});
 
 deleteBtn.addEventListener('dblclick', function() {
     localStorage.clear();
