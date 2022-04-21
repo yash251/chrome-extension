@@ -8,13 +8,13 @@ const leadsFromLocalStorage = JSON.parse( localStorage.getItem("myLeads") ); // 
 
 if (leadsFromLocalStorage) { // Checking if leadsFromLocalStorage is truthy
     myLeads = leadsFromLocalStorage;
-    renderInput();
+    renderInput(myLeads);
 }
 
 deleteBtn.addEventListener('dblclick', function() {
     localStorage.clear();
     myLeads = [];
-    renderInput();
+    renderInput(myLeads);
 });
 
 // localStorage only supports strings. 
@@ -34,16 +34,16 @@ inputBtn.addEventListener('click', function() {
     myLeads.push(inputEl.value);
     inputEl.value = "";  // to clear out input after hitting the button
     localStorage.setItem("myLeads", JSON.stringify(myLeads)); // Saving  myLeads array to localStorage (key,value)
-    renderInput();
+    renderInput(myLeads);
 });
 
-function renderInput() {
+function renderInput(leads) {
     let listItems = ""
-    for (let i = 0; i < myLeads.length; i++) {
+    for (let i = 0; i < leads.length; i++) {
         listItems += `
         <li>
-            <a target='_blank' href='${myLeads[i]}'>
-                ${myLeads[i]}
+            <a target='_blank' href='${leads[i]}'>
+                ${leads[i]}
             </a>
         </li>
         `;
