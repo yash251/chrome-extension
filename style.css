@@ -22,6 +22,11 @@ button {
     cursor: pointer;
 }
 
+#delete-btn {
+    background: white;
+    color: #5f9341;
+}
+
 ul {
     margin-top: 20px;
     list-style: none;
