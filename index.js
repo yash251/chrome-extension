@@ -5,6 +5,11 @@ const ulEl = document.getElementById("ul-el");
 
 let leadsFromLocalStorage = JSON.parse( localStorage.getItem("myLeads") ); // str to arr
 
+if (leadsFromLocalStorage) { // Checking if leadsFromLocalStorage is truthy
+    myLeads = leadsFromLocalStorage;
+    renderLeads();
+}
+
 // localStorage only supports strings. 
 // Use JSON.stringify() => array to string
 // JSON.parse() => string to array
