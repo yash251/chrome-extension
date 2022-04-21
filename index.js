@@ -2,13 +2,20 @@ let myLeads = [];
 const inputEl = document.getElementById("input-el");
 const inputBtn = document.getElementById("input-btn");
 const ulEl = document.getElementById("ul-el");
+const deleteBtn = document.getElementById("delete-btn");
 
-let leadsFromLocalStorage = JSON.parse( localStorage.getItem("myLeads") ); // str to arr
+const leadsFromLocalStorage = JSON.parse( localStorage.getItem("myLeads") ); // str to arr
 
 if (leadsFromLocalStorage) { // Checking if leadsFromLocalStorage is truthy
     myLeads = leadsFromLocalStorage;
-    renderLeads();
+    renderInput();
 }
+
+deleteBtn.addEventListener('dblclick', function() {
+    localStorage.clear();
+    myLeads = [];
+    renderInput();
+});
 
 // localStorage only supports strings. 
 // Use JSON.stringify() => array to string
